@@ -41,6 +41,10 @@ let items = [
     }
 ];
 
+app.get("/", (req, res) => {
+    res.redirect("/items");
+})
+
 app.get("/items", (req, res) => {
     res.render("index.ejs", { items });
 });
