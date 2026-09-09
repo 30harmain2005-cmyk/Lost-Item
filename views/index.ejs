@@ -19,16 +19,16 @@
     <div class="outer">
     <form action="/items" method="post" class="form">
         <b><label for="name">Name: </label></b>
-        <input placeholder="Enter your name" name="name">
+        <input placeholder="Enter your name" name="name" class="input">
         <br><br>
         <b><label for="location">Location: </label></b>
-        <input placeholder="Enter the location" name="location">
+        <input placeholder="Enter the location" name="location" class="input">
         <br><br>
         <b><label for="Description" >Description:</label></b>
         <textarea placeholder="Enter your Description" name="description"></textarea>
         <br><br>
         <b><label for="contact">contact</label></b>
-        <input placeholder="Enter the contact information" name="contact">
+        <input placeholder="Enter the contact information" name="contact" class="input">
         <br><br>
         <button type="submit">Add Item</button>
     </form>
@@ -41,7 +41,13 @@
             <h4 class="h4" >Location: <%=item.location %></h4>
             <h4 class="h4">Description: <%=item.description %></h4>
             <h4 class="h4">Contact: <%=item.contact %></h4>
-            <h4 class="h4">claimed: <input type=radio></h4>
+            <b><label>Has the item been claimed?</label></b>
+
+            <input type="radio" name="claimed" value="yes">
+            <b><label>Yes</label></b>
+
+            <input type="radio" name="claimed" value="no">
+            <b><label>No</label></b>
         <div class="btn">
         <form action="/items/<%=item.id%>" method="get">
             <button type="submit">View Item</button>

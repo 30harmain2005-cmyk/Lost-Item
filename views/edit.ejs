@@ -11,13 +11,13 @@
     <form action="/items/<%=item.id%>?_method=patch" method="post" class="form">
         <h2 class="h">Name: <%=item.name %></h2>
         <b><label for="location">Location: </label></b>
-        <input value="<%=item.location%>" name="location">
+        <input value="<%=item.location%>" name="location" class="input">
         <br><br>
         <b><label for="Description" >Description:</label></b>
         <textarea name="description"><%=item.description%></textarea>
         <br><br>
         <b><label for="contact">contact</label></b>
-        <input value="<%=item.contact%>" name="contact">
+        <input value="<%=item.contact%>" name="contact" class="input">
         <br><br>
         <button type="submit">Update Changes</button>
         
