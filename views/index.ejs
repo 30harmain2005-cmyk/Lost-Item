@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Items</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Dancing+Script:wght@400..700&family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="/logo-light.png" alt="logo" class="logo">
+    <h1 class="h1">Welcome to <br><span>lost</span><br> item researcher</h1> 
+    <h2 class="h2">Add Item: </h2>
+    <div class="outer">
+    <form action="/items" method="post" class="form">
+        <b><label for="name">Name: </label></b>
+        <input placeholder="Enter your name" name="name">
+        <br><br>
+        <b><label for="location">Location: </label></b>
+        <input placeholder="Enter the location" name="location">
+        <br><br>
+        <b><label for="Description" >Description:</label></b>
+        <textarea placeholder="Enter your Description" name="description"></textarea>
+        <br><br>
+        <b><label for="contact">contact</label></b>
+        <input placeholder="Enter the contact information" name="contact">
+        <br><br>
+        <button type="submit">Add Item</button>
+    </form>
+    </div>
+    
+    <div class="box-container">
+    <% for(item of items) { %>
+        <div class="box">
+            <h2 class="h">Name: <%=item.name %></h2>
+            <h4 class="h4" >Location: <%=item.location %></h4>
+            <h4 class="h4">Description: <%=item.description %></h4>
+            <h4 class="h4">Contact: <%=item.contact %></h4>
+            <h4 class="h4">claimed: <input type=radio></h4>
+        <div class="btn">
+        <form action="/items/<%=item.id%>" method="get">
+            <button type="submit">View Item</button>
+        </form>
+        <form action="/items/<%=item.id%>/edit" method="get">
+            <button type="submit">Edit Item</button>
+        </form>
+        <form action="/items/<%=item.id%>?_method=delete" method="post">
+            <button type="submit">Delete</button>
+        </form>
+        </div>
+    </div>
+ <% } %>
+</div>
+   
+</body>
+</html>
+
